@@ -10,7 +10,7 @@ _**Build:**_
 
 **_Usage:_** `./rest-countries`
 
-**_Demo:_** ---
+**_Demo:_** https://rest-countries-go.herokuapp.com/
 
 
 <hr>
