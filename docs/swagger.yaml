@@ -1,0 +1,258 @@
+basePath: /api/v1
+host: localhost:3000
+info:
+  contact: {}
+  description: |-
+    Get information about countries via a RESTful API made by Go.
+    Source Code: https://github.com/efectn/rest-countries
+  license:
+    name: GPL-3
+    url: https://www.gnu.org/licenses/gpl-3.0.en.html
+  title: Rest Countries Go
+  version: "1.0"
+paths:
+  /all:
+    get:
+      consumes:
+      - '*/*'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Get all countries.
+      tags:
+      - Main
+  /calling/{code}:
+    get:
+      consumes:
+      - '*/*'
+      parameters:
+      - description: Calling Code
+        in: path
+        name: code
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+        "404":
+          description: Not Found
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Search countries by calling code.
+      tags:
+      - Main
+  /capital/{capital}:
+    get:
+      consumes:
+      - '*/*'
+      parameters:
+      - description: Capital city
+        in: path
+        name: capital
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+        "404":
+          description: Not Found
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Search countries by capital city.
+      tags:
+      - Main
+  /code/{code}:
+    get:
+      consumes:
+      - '*/*'
+      description: Single (tr), Plural (tr;gb;usa).
+      parameters:
+      - description: ISO 3166-1 Code
+        in: path
+        name: code
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+        "404":
+          description: Not Found
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Search countries by ISO 3166-1 code.
+      tags:
+      - Main
+  /currency/{currency}:
+    get:
+      consumes:
+      - '*/*'
+      parameters:
+      - description: ISO 4217 Currency Code
+        in: path
+        name: currency
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+        "404":
+          description: Not Found
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Search countries by ISO 4217 currency code.
+      tags:
+      - Main
+  /language/{language}:
+    get:
+      consumes:
+      - '*/*'
+      parameters:
+      - description: ISO 639-1 Language Code
+        in: path
+        name: language
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+        "404":
+          description: Not Found
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Search countries by ISO 639-1 language code.
+      tags:
+      - Main
+  /name/{name}:
+    get:
+      consumes:
+      - '*/*'
+      parameters:
+      - description: Name, Native Name
+        in: path
+        name: name
+        required: true
+        type: string
+      - description: Fulltext Search
+        in: query
+        name: fullText
+        type: boolean
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+        "404":
+          description: Not Found
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Search countries by name or native name.
+      tags:
+      - Main
+  /region/{region}:
+    get:
+      consumes:
+      - '*/*'
+      description: 'Regions: Africa, Americas, Asia, Europe, Oceania.'
+      parameters:
+      - description: Region
+        in: path
+        name: region
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+        "404":
+          description: Not Found
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Search countries by region.
+      tags:
+      - Main
+  /regional-block/{block}:
+    get:
+      consumes:
+      - '*/*'
+      description: |-
+        Blocks:
+        - EU (European Union)
+        - EFTA (European Free Trade Association)
+        - CARICOM (Caribbean Community)
+        - PA (Pacific Alliance)
+        - AU (African Union)
+        - USAN (Union of South American Nations)
+        - EEU (Eurasian Economic Union)
+        - AL (Arab League)
+        - ASEAN (Association of Southeast Asian Nations)
+        - CAIS (Central American Integration System)
+        - CEFTA (Central European Free Trade Agreement)
+        - NAFTA (North American Free Trade Agreement)
+        - SAARC (South Asian Association for Regional Cooperation)
+      parameters:
+      - description: Regional Block
+        in: path
+        name: block
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+        "404":
+          description: Not Found
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Search countries by regional block.
+      tags:
+      - Main
+swagger: "2.0"
