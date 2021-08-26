@@ -4,7 +4,7 @@ Get information about countries via a RESTful API made by Go.
 _**Build:**_ 
 - Clone repository.
 - Edit .env file and main.go to change `@host` var.
-- `go mod download`
+- `go get -u`
 - `swag init .`
 - `CGO_ENABLED=0 go build -ldflags "-s -w" .`
 

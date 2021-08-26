@@ -16,12 +16,13 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/compress"
 	"github.com/gofiber/fiber/v2/middleware/filesystem"
 	"github.com/gofiber/fiber/v2/middleware/limiter"
+	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/joho/godotenv"
 	fs "github.com/rakyll/statik/fs"
 )
 
 // @title Rest Countries Go
-// @version 1.0
+// @version 1.1
 // @description Get information about countries via a RESTful API made by Go.
 // @description Source Code: https://github.com/efectn/rest-countries
 // @license.name GPL-3
@@ -60,6 +61,10 @@ func main() {
 
 	app.Use("/data", filesystem.New(filesystem.Config{
 		Root: statikFS,
+	}))
+
+	app.Use(logger.New(logger.Config{
+		TimeZone: "Europe/Istanbul",
 	}))
 
 	if rateLimit {
